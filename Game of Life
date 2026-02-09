@@ -1,0 +1,38 @@
+class Solution {
+    public void gameOfLife(int[][] board) {
+        int r = board.length;
+        int c = board[0].length;
+        int[][] b2 = new int[r][c];
+        int[][] arr = {{-1, -1},{-1, 0}, {-1, 1},{0, -1},{0, 1},
+            {1, -1}, {1, 0}, {1, 1}};
+      for(int i=0;i<r;i++)
+      {
+        for(int j=0;j<c;j++)
+        {
+            int al=0;
+            for(int[] a:arr)
+            {
+                int r1=i+a[0];
+                int c1=j+a[1];
+                if(r1>=0 && c1>=0 && r1<r && c1<c) {
+                    if(board[r1][c1]==1)
+                        al++;
+                }
+            }
+                if(board[i][j]==1)
+                {
+                    if(al==3 || al==2) b2[i][j]=1;
+                }
+                else{
+                    if(al==3) b2[i][j]=1;
+                }
+        }
+      }
+
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                board[i][j] = b2[i][j];
+            }
+        }
+    }
+}
