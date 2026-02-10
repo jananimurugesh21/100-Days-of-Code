@@ -1,0 +1,28 @@
+class Solution {
+    public void setZeroes(int[][] arr) {
+        int row = arr.length;
+        int col = arr[0].length;
+        
+        boolean[] b1 = new boolean[row];
+        boolean[] b2 = new boolean[col];
+        
+        
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (arr[i][j] == 0) {
+                    b1[i] = true;
+                    b2[j] = true;
+                }
+            }
+        }
+        
+        
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (b1[i] || b2[j]) {
+                    arr[i][j] = 0;
+                }
+            }
+        }
+    }
+}
