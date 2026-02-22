@@ -1,0 +1,21 @@
+class Solution {
+    public List<Integer> majorityElement(int[] nums) {
+        int n=nums.length;
+        int count=n/3;
+        Map<Integer,Integer> h=new HashMap<>();
+        List<Integer> l=new ArrayList<>();
+       
+
+        for(int i:nums){
+            h.put(i,h.getOrDefault(i,0)+1);
+           
+        }
+        
+        for(int i:h.keySet()){
+            if(h.get(i)>count) l.add(i);
+        }
+        
+        return l;
+        
+    }
+}
