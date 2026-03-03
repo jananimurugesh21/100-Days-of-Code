@@ -1,3 +1,4 @@
+
 # 100-Days-of-Code
 100 days of Coding Challenge
 
@@ -15,3 +16,5 @@
 |10|Longese Palindromic Substring|Input: s = "babad"Output: "bab" Explanation: "aba" is also a valid answer|JAVA|<a href="https://leetcode.com/problems/longest-palindromic-substring/description/">Leetcode</a>|<a href="https://github.com/jananimurugesh21/100-Days-of-Code/blob/main/10%20Longese%20Palindromic%20Substring">View code</a>|
 |12|Sort Even and Odd Indices Independently|Input: nums = [4,1,2,3] Output: [2,3,4,1] Explanation: First, we sort the values present at odd indices (1 and 3) in non-increasing order.So, nums changes from [4,1,2,3] to [4,3,2,1]. Next, we sort the values present at even indices (0 and 2) in non-decreasing order. So, nums changes from [4,1,2,3] to [2,3,4,1].Thus, the array formed after rearranging the values is [2,3,4,1].|JAVA|<a href="https://leetcode.com/problems/sort-even-and-odd-indices-independently/">Leetcode</a>|<a href="https://github.com/jananimurugesh21/100-Days-of-Code/blob/main/12%20Sort%20Even%20and%20Odd%20Indices%20Independently">View Code</a>|
 |14|Majority Element II | Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times.|JAVA|<a href="https://leetcode.com/problems/majority-element-ii/">Leetcode</a>|<a href="https://github.com/jananimurugesh21/100-Days-of-Code/blob/main/14%20Majority%20Element%20II">View code</a>|
+
+|16|Roman to Integer|Input: s = "LVIII" Output: 58 Explanation: L = 50, V= 5, III = 3.|JAVA|<a href="https://leetcode.com/problems/roman-to-integer/">Leetcode</a>|<a href="">View code</a>|
