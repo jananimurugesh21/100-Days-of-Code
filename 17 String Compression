@@ -1,0 +1,29 @@
+class Solution {
+    public int compress(char[] c) {
+        int n=c.length;
+
+        int s=0,e=0,index=0;
+
+        while(s<n ){
+            e=s;
+            while(e<n && c[s]==c[e]){
+                e++;
+            }
+            
+            
+                int val=e-s;
+                c[index++]=c[s];
+                if(val >=2){
+                    char[] ele=Integer.toString(val).toCharArray();
+                    for(char i:ele){
+                        c[index++]=i;
+                    }
+                
+                }
+                s=e;
+            
+        }
+        return index;
+        
+    }
+}
