@@ -1,0 +1,26 @@
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+
+        char ran[]=ransomNote.toCharArray();
+        char mag[]=magazine.toCharArray();
+
+        HashMap<Character,Integer> h1=new HashMap<>();
+        HashMap<Character,Integer> h2=new HashMap<>();
+
+        for(int i=0;i<ran.length;i++){
+            h1.put(ran[i],h1.getOrDefault(ran[i],0)+1);
+        }
+
+        for(int i=0;i<mag.length;i++){
+            h2.put(mag[i],h2.getOrDefault(mag[i],0)+1);
+        }
+        
+        for(int i=0;i<ran.length;i++){
+            if(!h2.containsKey(ran[i])) return false;
+            if(h2.getOrDefault(ran[i],0)<h1.get(ran[i])){
+                return false;
+            }
+        }
+        return true;
+    }
+}
