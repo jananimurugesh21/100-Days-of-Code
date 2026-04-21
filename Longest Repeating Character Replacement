@@ -1,0 +1,38 @@
+class Solution {
+    public int characterReplacement(String s, int k) {
+        int ans = 0;
+        int n = s.length();
+        int curlen=0;
+        int i=0;
+
+        int[] arr=new int[26];
+        HashMap<Character,Integer> hm=new HashMap<>();
+        for(int j=0;j<n;j++){
+            curlen=j-i+1;
+            char ch=s.charAt(j);
+            arr[ch-'A']++;
+          
+            ans=Math.max(arr[ch-'A'],ans);
+
+            while((curlen - ans)>k ){
+                char val=s.charAt(i);
+                arr[val-'A']--;              
+                 i++;
+                curlen=j-i+1;
+                
+                ans=Math.max(ans,arr[val-'A']);
+            }
+
+        }
+        return Math.max(curlen,ans);
+    }
+
+      
+}
+
+
+
+
+
+
+
