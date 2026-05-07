@@ -1,0 +1,50 @@
+class Solution {
+    public int shipWithinDays(int[] weights, int days) {
+
+        int sum=0,max=0;
+
+        for(int i:weights){
+            sum+=i;
+            max=Math.max(i,max);
+
+        }
+
+        int l=max,r=sum;
+        int day_count=0;
+
+        while(l<=r){
+            int mid=l+(r-l)/2;
+
+            day_count=func(weights,mid);
+           
+            if(day_count<=days){
+                r=mid-1;
+            }
+            else{
+                l=mid+1;
+            }
+
+
+            
+        }
+        return l;
+        
+    }
+
+    public int func(int[] w,int cap){
+        int days=1,load=0;
+
+        for(int i=0;i<w.length;i++){
+            if(w[i]+load>cap){
+                load=w[i];
+                days++;
+
+            }
+            else{
+                load+=w[i];
+                
+            }
+        }
+        return days;
+    }
+}
