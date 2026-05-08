@@ -1,0 +1,41 @@
+class Solution {
+    public int minEatingSpeed(int[] piles, int h) {
+
+        int maxi=0;
+
+        for(int i:piles){
+            if(maxi<i){
+                maxi=i;
+            }
+
+        }
+
+        int l=1,r=maxi;
+        int val=0;
+        int banana=0;
+
+
+        while(l<=r){
+            int mid=l+(r-l)/2;
+            banana=findBananas(piles,mid);
+            if(banana<=h){
+                r=mid-1;
+            }
+            else{
+                l=mid+1;
+            }
+        }
+        return l;     
+    }
+
+    public int findBananas(int[] p,int b){
+        int banana=0;
+
+        for(int i=0;i<p.length;i++){
+            banana+=Math.ceil((double)p[i]/b);
+
+        }
+        return banana;
+
+    }
+}
