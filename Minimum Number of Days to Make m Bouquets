@@ -1,0 +1,51 @@
+class Solution {
+    public int minDays(int[] bloomDay, int m, int k) {
+        int maxi=0,mini=0;
+
+         if ((long)m * k > bloomDay.length) return -1;
+
+        for(int i:bloomDay){
+            if(mini>i) mini=i;
+            if(maxi<i) maxi=i;
+        }
+
+        int l=mini,r=maxi;
+        int min_days=0;
+        int ans=-1;
+
+        while(l<=r){
+            int mid = l + (r - l) / 2;
+            min_days=possible(bloomDay,k,mid);
+            if(min_days>=m){
+                ans=mid;
+                  r=mid-1;
+            
+            }           
+            else{
+                 l=mid+1;
+              
+            }
+        }
+        return ans;
+        
+    }
+
+    public int possible(int[] nums,int k,int mid){
+        int count=0;
+        int no_days=0;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]<=mid){
+                count++;
+                if (count == k) {
+                    no_days++;
+                    count = 0;
+                }
+            }
+            else{               
+                count=0;
+                
+            }
+        }
+        return no_days;
+    }
+}
