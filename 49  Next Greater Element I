@@ -1,0 +1,53 @@
+class Solution {
+    public int[] nextGreaterElement(int[] n1, int[] n2) {
+        int sol[] = new int[n1.length];
+
+        Stack<Integer> st=new Stack<>();
+        Map<Integer,Integer> m=new HashMap<>();
+
+        for(int i:n2){
+
+            while(!st.isEmpty() && st.peek()<i){
+                m.put(st.pop(),i);
+                
+            }
+            st.push(i);
+
+        }
+
+        for(int j=0;j<n1.length;j++){
+            if(m.containsKey(n1[j])){
+                sol[j]=m.get(n1[j]);
+            }
+            else{
+                sol[j]=-1;
+            }
+        }
+
+        return sol;
+    }
+}
+
+
+
+//  for (int i = 0; i < n1.length; i++) {
+//             int index = -1;
+
+//             for(int j=0;j<n2.length;j++){
+//                 if(n1[i]==n2[j]){
+//                     index=j;
+//                     break;
+//                 }
+//             }
+
+//             int big=-1;
+
+//             for(int j=index+1;j<n2.length;j++){
+//                 if(n2[j]>n1[i]){
+//                     big=n2[j];
+//                     break;
+//                 }
+//             }
+
+//             sol[i] = big;
+//         }
